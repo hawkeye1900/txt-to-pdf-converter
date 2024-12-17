@@ -20,4 +20,10 @@ for filepath in filepaths:
     pdf.cell(w=50, h=12, txt=f"{filename}", align="L", ln=1,
              border=0)
 
+    # Get the content of each text file
+    with open(filepath, "r") as text:
+        content = text.read()
+    pdf.set_font(family="Times", size=12)
+    pdf.multi_cell(w=0, h=6, txt=content)
+
 pdf.output("animals.pdf")
